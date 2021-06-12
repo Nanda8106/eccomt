@@ -82,6 +82,7 @@ const Signin = () => {
     const signinForm = () => {
         return (
         <div className="login">
+                
                 <form>
                 {errorMessage()}
                 {successMessage()}
@@ -100,9 +101,10 @@ const Signin = () => {
     return (
         <Base>
             {didLoading(loading)}
+            <p style={{color:"green", textAlign:"center"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
             {signinForm()}
             {didRedirect()}
-            <p style={{color:"green", textAlign:"center"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
+            
         </Base>
     )
 }
