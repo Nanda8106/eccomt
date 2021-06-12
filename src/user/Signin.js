@@ -2,13 +2,15 @@ import React, {useState} from "react";
 import {Link, Redirect} from "react-router-dom";
 import { authenticate, isAuthenticated, signin } from "../auth/helper";
 import Base from "../core/Base";
+import Loading from "../core/Loading";
 import "../styles.css"
+
 
 
 const Signin = () => {
     const [values, setValues] = useState({
-        email: "nandu@gmail.com",
-        password : "N@nda8106",
+        email: "",
+        password : "",
         error:"",
         success : false,
         loading : false,
@@ -62,6 +64,11 @@ const Signin = () => {
            </div>
         )
     }
+    const didLoading = (loading) => {
+        if(loading){
+            return <Loading type="spin" color="#fffff"/>
+        }
+    }
     const didRedirect = () => {
         if(redirect){
             if(user && user.role === 1){
@@ -74,25 +81,6 @@ const Signin = () => {
 
     const signinForm = () => {
         return (
-        //     <div className="form">
-        //         {successMessage()}
-        //         {errorMessage()}
-        //     <form>
-                
-        //         <div className="form-items">
-        //             <label className="text-light">Email</label><br/>
-        //             <input onChange={handleChange("email")} value={email} type="email"/>
-        //         </div>
-                
-        //         <div className="form-items">
-        //             <label className="text-light">Password</label><br/>
-        //             <input onChange={handleChange("password")} value={password} type="password"/>
-        //         </div>
-                
-        //         <button onClick={onSubmit} className="btn-full btn-center">Signin</button>
-                
-        //     </form>
-        // </div>
         <div className="login">
                 <form>
                 {errorMessage()}
@@ -111,8 +99,10 @@ const Signin = () => {
     }
     return (
         <Base>
+            {didLoading(loading)}
             {signinForm()}
             {didRedirect()}
+            <p style={{color:"green", textAlign:"center"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
         </Base>
     )
 }

@@ -51,6 +51,7 @@ body {
 .nav-items span:hover {
   padding: 4px 9px;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .item-no {
@@ -1102,4 +1103,12 @@ table tr th:first-child {
   color: black;
   transition: 0.3s;
   cursor: pointer;
+}
+
+/* loading */
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Redirect, Link} from "react-router-dom";
 import { signup } from "../auth/helper";
 import Base from "../core/Base";
+import Loading from "../core/Loading";
 import "../styles.css"
 
 
@@ -67,34 +68,14 @@ const Signup = () => {
            return <Redirect to="/signin"/>
         }
     }
+    const didLoading = (loading) => {
+        if(loading){
+            return <Loading type="spin" color="#fffff"/>
+        }
+    }
 
     const signupForm = () => {
         return (
-        //     <div className="form">
-        //         {successMessage()}
-        //         {errorMessage()}
-        //     <form>
-        //         <div className="form-items">
-        //             <label className="text-light">Name</label><br/>
-        //             <input onChange={handleChange("name")} value={name} type="text"/><br/>
-        //         </div>
-        //         <div className="form-items">
-        //             <label className="text-light">Email</label><br/>
-        //             <input onChange={handleChange("email")} value={email} type="email"/>
-        //         </div>
-        //         <div className="form-items">
-        //             <label className="text-light">Phone No</label><br/>
-        //             <input onChange={handleChange("phone_no")} value={phone_no} type="number" maxLength="10"/>
-        //         </div>
-        //         <div className="form-items">
-        //             <label className="text-light">Password</label><br/>
-        //             <input onChange={handleChange("password")} value={password} type="password"/>
-        //         </div>
-                
-        //         <button onClick={onSubmit} className="btn-full btn-center">Signup</button>
-                
-        //     </form>
-        // </div>
         <div className="login">
                 <form>
                     {successMessage()}
@@ -125,7 +106,7 @@ const Signup = () => {
 
     return (
         <Base>
-            
+            {didLoading(loading)}
             {signupForm()}
             {didRedirect()}
         </Base>
