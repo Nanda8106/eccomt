@@ -101,7 +101,7 @@ const Signin = () => {
     return (
         <Base>
             {didLoading(loading)}
-            <p style={{color:"green", textAlign:"center"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
+            <p style={{color:"green", textAlign:"center", fontSize:"20px"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
             {signinForm()}
             {didRedirect()}
             
