@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Base from "./Base";
 import Card from "./Card";
-import {getProducts} from "../admin/helper/adminapicall"
 import Loading from "./Loading";
+import { API } from "../backend";
+import axios from "axios"
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -13,14 +14,18 @@ const Home = () => {
 
     const preload = async () => {
         setLoading(true)
-        await getProducts().then(data => {
-            if(data.error){
-                setError(data.error)
-            }else{
-                setProducts(data)
+        const result = await axios.get(`${API}/products`)
+        setProducts(result.data)
+        setLoading(false)
+        // getProducts().then(data => {
+        //     if(data.error){
+        //         setError(data.error)
+        //     }else{
+        //         setProducts(data)
                 
-            }
-        }).then(setLoading(false))
+        //     }
+        // }).then(setLoading(false))
+        
         
        
     }
@@ -32,7 +37,7 @@ const Home = () => {
 
     return (
         <Base>
-            {loading && (<Loading type="spin" color="black"/>)}
+            {loading && (<Loading type="bubbles" color="#2874A6"/>)}
            <div className="section">
             <div className="cards">
                {products.map( (product, index) => (

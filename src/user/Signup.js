@@ -70,7 +70,7 @@ const Signup = () => {
     }
     const didLoading = (loading) => {
         if(loading){
-            return <Loading type="spin" color="#fffff"/>
+            return <Loading type="bubbles" color="#2874A6"/>
         }
     }
 

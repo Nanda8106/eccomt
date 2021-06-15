@@ -1,4 +1,5 @@
 import { API } from "../../backend";
+import axios from "axios"
 
 export const createCategory = (userId, token, category) => {
     return fetch(`${API}/category/create/${userId}`, {
@@ -86,6 +87,14 @@ export const getProducts = () => {
     }).catch(error => console.log(error))
 
 }
+// export const getProducts =  () => {
+//     axios({
+//         'method':'GET',
+//         'url':`${API}/products`,
+//     })
+// }
+    
+
 
 export const getProduct = (productId) => {
     return fetch(`${API}/product/${productId}`,{
