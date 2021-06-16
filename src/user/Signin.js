@@ -66,7 +66,7 @@ const Signin = () => {
     }
     const didLoading = (loading) => {
         if(loading){
-            return <Loading type="bubbles" color="#2874A6"/>
+            return <Loading type="spin" width={50} height={50} color="#2874A6"/>
         }
     }
     const didRedirect = () => {
@@ -86,6 +86,9 @@ const Signin = () => {
                 <form>
                 {errorMessage()}
                 {successMessage()}
+                <div className="loading">
+                {didLoading(loading)}
+                </div>
                     <label>Email</label><br/>
                     <i className="fa fa-envelope"></i>
                     <input type="text" onChange={handleChange("email")} value={email}/><br/>
@@ -100,7 +103,7 @@ const Signin = () => {
     }
     return (
         <Base>
-            {didLoading(loading)}
+            
             <p style={{color:"green", textAlign:"center", fontSize:"20px"}}>If you want to know how admin area works login with email: coder@gmail.com, password: C@der8106</p>
             {signinForm()}
             {didRedirect()}

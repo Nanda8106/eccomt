@@ -70,7 +70,7 @@ const Signup = () => {
     }
     const didLoading = (loading) => {
         if(loading){
-            return <Loading type="bubbles" color="#2874A6"/>
+            return <Loading type="spin" width={50} height={50} color="#2874A6"/>
         }
     }
 
@@ -80,7 +80,9 @@ const Signup = () => {
                 <form>
                     {successMessage()}
                     {errorMessage()}
-
+                    <div className="loading">
+                        {didLoading(loading)}
+                    </div>
                     <label>Name</label><br/>
                     <i className="fa fa-user"></i>
                     <input type="text" onChange={handleChange("name")} value={name}/><br/>
@@ -106,7 +108,6 @@ const Signup = () => {
 
     return (
         <Base>
-            {didLoading(loading)}
             {signupForm()}
             {didRedirect()}
         </Base>

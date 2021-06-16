@@ -206,7 +206,7 @@ body {
 .add-category,
 .add-product {
   width: 40%;
-  margin: 10vh auto;
+  margin: 7vh auto;
   background: white;
   box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.4);
   border-radius: 7px;
@@ -1107,8 +1107,10 @@ table tr th:first-child {
 
 /* loading */
 .loading {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 30%;
+  margin: 0 auto;
+}
+.home-loading {
+  width: 30%;
+  margin: 17vh auto;
 }

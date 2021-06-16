@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
  
-const Loading = ({ type, color }) => (
+const Loading = ({ type, color, width, height }) => (
     <div className="loading">
-        <ReactLoading type={type} color={color} height={100} width={100} />
+        <ReactLoading type={type} color={color} height={height} width={width} />
     </div>
 );
  

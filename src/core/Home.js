@@ -37,8 +37,8 @@ const Home = () => {
 
     return (
         <Base>
-            {loading && (<Loading type="bubbles" color="#2874A6"/>)}
            <div className="section">
+            {loading && (<div className="home-loading"><Loading type="bubbles" height={100} width={100} color="#2874A6"/></div>)}
             <div className="cards">
                {products.map( (product, index) => (
                    <Card product={product} key={index}/>
